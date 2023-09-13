@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180328 12:24:45.127" generator="Robot 3.0.2 (Python 2.7.14 on win32)">
+<suite source="C:\Users\enetzoy\Desktop\HowITWorks\1_CodeWalkthrough\FrameworkLib\Tests" id="s1" name="Tests">
+<suite source="C:\Users\enetzoy\Desktop\HowITWorks\1_CodeWalkthrough\FrameworkLib\Tests\SSH.robot" id="s1-s1" name="SSH">
+<test id="s1-s1-t1" name="Execute Command on Remote Host">
+<kw type="setup" name="Open Connection And Log In">
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${HOST}</arg>
+</arguments>
+<status status="PASS" endtime="20180328 12:24:45.461" starttime="20180328 12:24:45.460"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${USER}</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<msg timestamp="20180328 12:24:45.461" level="INFO">Logging into '192.168.33.10:22' as 'vagrant'.</msg>
+<msg timestamp="20180328 12:24:47.368" level="INFO">Read output: Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 4.4.0-98-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+
+ System information disabled due to load higher than 1.0
+
+106 packages can be updated.
+92 updates are security updates.
+
+Your Hardware Enablement Stack (HWE) is supported until April 2019.
+----------------------------------------------------------------
+  Ubuntu 14.04.5 LTS                          built 2016-09-24
+----------------------------------------------------------------
+Last login: Tue Mar 27 14:53:57 2018 from 192.168.33.1
+vagrant@acs:~$</msg>
+<status status="PASS" endtime="20180328 12:24:47.369" starttime="20180328 12:24:45.461"></status>
+</kw>
+<status status="PASS" endtime="20180328 12:24:47.369" starttime="20180328 12:24:45.460"></status>
+</kw>
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes `command` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>cat ~/LogCollector/ansible.cfg</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20180328 12:24:47.370" level="INFO">Executing command 'cat ~/LogCollector/ansible.cfg'.</msg>
+<msg timestamp="20180328 12:24:47.386" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20180328 12:24:47.386" level="INFO">${output} = ######################################################
+#                                                    #
+# Global settings in Ansible are adjustable here.    #
+# Author : Nethali Zoysa (nethal...</msg>
+<status status="PASS" endtime="20180328 12:24:47.386" starttime="20180328 12:24:47.370"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20180328 12:24:47.389" level="INFO">######################################################
+#                                                    #
+# Global settings in Ansible are adjustable here.    #
+# Author : Nethali Zoysa (nethali.zoysa@ericsson.com)#
+# Date   : 2016/11/30                                #
+# License: Ericsson Commercial                       #
+# All right reserved (2016)                          #
+#                                                    #
+######################################################
+
+[defaults]
+# This is the default number of parallel processes to spawn 
+# when communicating with remote hosts
+forks = 5
+
+# Add ECDSA key fingerprint of the host automatically
+# to known_host list. Set it to True for higher security.
+host_key_checking = False
+
+# This is the default location of the inventory file
+inventory = host_inventory
+
+# If the network is very slow, increase SSH timeout
+timeout = 50
+
+# By default gather_facts attributes value is True. We will stop it.
+gather_facts: False</msg>
+<status status="PASS" endtime="20180328 12:24:47.389" starttime="20180328 12:24:47.388"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>forks = 5</arg>
+</arguments>
+<status status="PASS" endtime="20180328 12:24:47.392" starttime="20180328 12:24:47.391"></status>
+</kw>
+<kw type="teardown" name="Close All Connections" library="SSHLibrary">
+<doc>Closes all open connections.</doc>
+<status status="PASS" endtime="20180328 12:24:47.460" starttime="20180328 12:24:47.394"></status>
+</kw>
+<status status="PASS" endtime="20180328 12:24:47.461" critical="yes" starttime="20180328 12:24:45.459"></status>
+</test>
+<doc>SSH to remote host and check for specific file content</doc>
+<status status="PASS" endtime="20180328 12:24:47.466" starttime="20180328 12:24:45.165"></status>
+</suite>
+<status status="PASS" endtime="20180328 12:24:47.474" starttime="20180328 12:24:45.133"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Tests" pass="1">Tests</stat>
+<stat fail="0" id="s1-s1" name="SSH" pass="1">Tests.SSH</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180328 12:17:09.015" generator="Robot 3.0.2 (Python 2.7.14 on win32)">
+<suite source="C:\Users\enetzoy\Desktop\HowITWorks\1_CodeWalkthrough\CustomLib\Tests" id="s1" name="Tests">
+<suite source="C:\Users\enetzoy\Desktop\HowITWorks\1_CodeWalkthrough\CustomLib\Tests\MyTest.robot" id="s1-s1" name="MyTest">
+<test id="s1-s1-t1" name="My Library Test">
+<kw name="Hello World" library="MyCustomLib">
+<msg timestamp="20180328 12:17:09.058" level="INFO">Hello World!</msg>
+<status status="PASS" endtime="20180328 12:17:09.059" starttime="20180328 12:17:09.058"></status>
+</kw>
+<kw name="Print Name" library="MyCustomLib">
+<arguments>
+<arg>Ericsson</arg>
+</arguments>
+<msg timestamp="20180328 12:17:09.060" level="INFO">My name is Ericsson</msg>
+<status status="PASS" endtime="20180328 12:17:09.060" starttime="20180328 12:17:09.059"></status>
+</kw>
+<kw name="Hello Country" library="MyCustomLib">
+<msg timestamp="20180328 12:17:09.060" level="INFO">The greeting in Sweden is God middag</msg>
+<status status="PASS" endtime="20180328 12:17:09.061" starttime="20180328 12:17:09.060"></status>
+</kw>
+<kw name="Hello Country" library="MyCustomLib">
+<arguments>
+<arg>日本</arg>
+<arg>こんにちは</arg>
+</arguments>
+<msg timestamp="20180328 12:17:09.061" level="INFO">The greeting in 日本 is こんにちは</msg>
+<status status="PASS" endtime="20180328 12:17:09.061" starttime="20180328 12:17:09.061"></status>
+</kw>
+<status status="PASS" endtime="20180328 12:17:09.062" critical="yes" starttime="20180328 12:17:09.058"></status>
+</test>
+<status status="PASS" endtime="20180328 12:17:09.064" starttime="20180328 12:17:09.051"></status>
+</suite>
+<status status="PASS" endtime="20180328 12:17:09.066" starttime="20180328 12:17:09.022"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Tests" pass="1">Tests</stat>
+<stat fail="0" id="s1-s1" name="MyTest" pass="1">Tests.MyTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
